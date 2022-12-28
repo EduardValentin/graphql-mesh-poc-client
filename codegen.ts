@@ -4,7 +4,7 @@ const config: CodegenConfig = {
 	schema: {
 		"github:EduardValentin/graphql-mesh-poc#main:mesh/.mesh/schema.graphql": {
 			// @ts-ignore
-			token: "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",
+			token: process.env.POC_GRAPHQL_MESH_ACCESS_TOKEN,
 		},
 	},
 	//   documents: ['src/**/*.tsx'],
