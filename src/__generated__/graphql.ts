@@ -24,50 +24,145 @@ export enum ConnectivityState {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  com_example_SwordService_CreateSword?: Maybe<Com_Example_Sword>;
+  com_sword_v1_SwordService_CreateSword?: Maybe<Com_Sword_V1_Sword>;
 };
 
 
-export type MutationCom_Example_SwordService_CreateSwordArgs = {
-  input?: InputMaybe<Com_Example_CreateSwordRequest_Input>;
+export type MutationCom_Sword_V1_SwordService_CreateSwordArgs = {
+  input?: InputMaybe<Com_Sword_V1_CreateSwordRequest_Input>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  com_example_SwordService_ListSwords?: Maybe<Com_Example_ListSwordsResponse>;
-  com_example_SwordService_connectivityState?: Maybe<ConnectivityState>;
+  com_samurai_v1_SamuraiService_GetById?: Maybe<Com_Samurai_V1_Samurai>;
+  com_samurai_v1_SamuraiService_ListAllSamurai?: Maybe<Array<Maybe<Com_Samurai_V1_Samurai>>>;
+  com_samurai_v1_SamuraiService_ListById?: Maybe<Array<Maybe<Com_Samurai_V1_Samurai>>>;
+  com_samurai_v1_SamuraiService_connectivityState?: Maybe<ConnectivityState>;
+  com_sword_v1_SwordService_GetById?: Maybe<Com_Sword_V1_Sword>;
+  com_sword_v1_SwordService_GetSamuraiWithSwords?: Maybe<Com_Sword_V1_SamuraiWithSwordsResponse>;
+  com_sword_v1_SwordService_ListById?: Maybe<Array<Maybe<Com_Sword_V1_Sword>>>;
+  com_sword_v1_SwordService_ListBySamuraiId?: Maybe<Array<Maybe<Com_Sword_V1_Sword>>>;
+  com_sword_v1_SwordService_ListSamuraiWithSwords?: Maybe<Array<Maybe<Com_Sword_V1_SamuraiWithSwordsResponse>>>;
+  com_sword_v1_SwordService_ListSwords?: Maybe<Array<Maybe<Com_Sword_V1_Sword>>>;
+  com_sword_v1_SwordService_connectivityState?: Maybe<ConnectivityState>;
 };
 
 
-export type QueryCom_Example_SwordService_ListSwordsArgs = {
+export type QueryCom_Samurai_V1_SamuraiService_GetByIdArgs = {
+  input?: InputMaybe<Com_Samurai_V1_GetByIdRequest_Input>;
+};
+
+
+export type QueryCom_Samurai_V1_SamuraiService_ListAllSamuraiArgs = {
   input?: InputMaybe<Scalars['google_protobuf_Empty_Input']>;
 };
 
 
-export type QueryCom_Example_SwordService_ConnectivityStateArgs = {
+export type QueryCom_Samurai_V1_SamuraiService_ListByIdArgs = {
+  input?: InputMaybe<Com_Samurai_V1_ListSamuraiById_Input>;
+};
+
+
+export type QueryCom_Samurai_V1_SamuraiService_ConnectivityStateArgs = {
   tryToConnect?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type Com_Example_CreateSwordRequest_Input = {
-  name?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Com_Example_Type>;
+
+export type QueryCom_Sword_V1_SwordService_GetByIdArgs = {
+  input?: InputMaybe<Com_Sword_V1_GetByIdRequest_Input>;
 };
 
-export type Com_Example_ListSwordsResponse = {
-  __typename?: 'com_example_ListSwordsResponse';
-  swords?: Maybe<Array<Maybe<Com_Example_Sword>>>;
+
+export type QueryCom_Sword_V1_SwordService_GetSamuraiWithSwordsArgs = {
+  input?: InputMaybe<Com_Sword_V1_SamuraiWithSwordsRequest_Input>;
 };
 
-export type Com_Example_Sword = {
-  __typename?: 'com_example_Sword';
+
+export type QueryCom_Sword_V1_SwordService_ListByIdArgs = {
+  input?: InputMaybe<Com_Sword_V1_ListSwordsByIdRequest_Input>;
+};
+
+
+export type QueryCom_Sword_V1_SwordService_ListBySamuraiIdArgs = {
+  input?: InputMaybe<Com_Sword_V1_ListBySamuraiIdRequest_Input>;
+};
+
+
+export type QueryCom_Sword_V1_SwordService_ListSamuraiWithSwordsArgs = {
+  input?: InputMaybe<Com_Sword_V1_ListSamuraiWithSwordsRequest_Input>;
+};
+
+
+export type QueryCom_Sword_V1_SwordService_ListSwordsArgs = {
+  input?: InputMaybe<Scalars['google_protobuf_Empty_Input']>;
+};
+
+
+export type QueryCom_Sword_V1_SwordService_ConnectivityStateArgs = {
+  tryToConnect?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type Com_Samurai_V1_GetByIdRequest_Input = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type Com_Samurai_V1_ListSamuraiById_Input = {
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Com_Samurai_V1_Samurai = {
+  __typename?: 'com_samurai_v1_Samurai';
+  age?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  type?: Maybe<Com_Example_Type>;
+  swords?: Maybe<Array<Maybe<Com_Sword_V1_Sword>>>;
 };
 
-export enum Com_Example_Type {
+export type Com_Sword_V1_CreateSwordRequest_Input = {
+  name?: InputMaybe<Scalars['String']>;
+  samurai_id?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Com_Sword_V1_Type>;
+};
+
+export type Com_Sword_V1_GetByIdRequest_Input = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type Com_Sword_V1_ListBySamuraiIdRequest_Input = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type Com_Sword_V1_ListSamuraiWithSwordsRequest_Input = {
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Com_Sword_V1_ListSwordsByIdRequest_Input = {
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Com_Sword_V1_SamuraiWithSwordsRequest_Input = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type Com_Sword_V1_SamuraiWithSwordsResponse = {
+  __typename?: 'com_sword_v1_SamuraiWithSwordsResponse';
+  id?: Maybe<Scalars['String']>;
+  swords?: Maybe<Array<Maybe<Com_Sword_V1_Sword>>>;
+};
+
+export type Com_Sword_V1_Sword = {
+  __typename?: 'com_sword_v1_Sword';
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  samurai?: Maybe<Com_Samurai_V1_Samurai>;
+  samurai_id?: Maybe<Scalars['String']>;
+  type?: Maybe<Com_Sword_V1_Type>;
+};
+
+export enum Com_Sword_V1_Type {
   Katana = 'KATANA',
   Tachi = 'TACHI',
   Uchigatana = 'UCHIGATANA',
-  Unknown = 'UNKNOWN'
+  Unknown = 'UNKNOWN',
+  Wakizashi = 'WAKIZASHI'
 }

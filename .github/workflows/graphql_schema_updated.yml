@@ -1,0 +1,33 @@
+name: Update GraphQL Schema
+
+on:
+  repository_dispatch:
+    types: [update-graphql-schema]
+
+jobs:
+  update-graphql-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Update GraphQL Schema
+        run: POC_GRAPHQL_MESH_ACCESS_TOKEN=${{ secrets.POC_GRAPHQL_MESH_ACCESS_TOKEN }} npx codegen
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.POC_GRAPHQL_MESH_ACCESS_TOKEN }} # `GITHUB_TOKEN` unless using automerge-action
+          commit-message: '[bot] Update GraphQL Schema'
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: feature/update-graphql-schema
+          branch-suffix: timestamp
+          delete-branch: true
+          title: '[bot] Update GraphQL Schema'
+          body: GraphQL schema has been updated
+          labels: automerge # required if using automerge-action
