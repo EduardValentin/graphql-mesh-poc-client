@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "graphql-codegen",
-    "watch": "graphql-codegen -w"
+    "codegen": "graphql-codegen -r dotenv/config"
   },
   "author": "",
   "license": "ISC",

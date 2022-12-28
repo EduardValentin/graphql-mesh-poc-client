@@ -15,7 +15,7 @@ jobs:
         run: npm i
 
       - name: Update GraphQL Schema
-        run: POC_GRAPHQL_MESH_ACCESS_TOKEN=${{ secrets.POC_GRAPHQL_MESH_ACCESS_TOKEN }} npx codegen
+        run: POC_GRAPHQL_MESH_ACCESS_TOKEN=${{ secrets.POC_GRAPHQL_MESH_ACCESS_TOKEN }} npm run codegen
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
